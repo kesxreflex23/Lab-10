@@ -20,3 +20,7 @@ INSERT INTO books (title, author, year, genre) VALUES
     ('Clean Code',          'Robert C. Martin', 2008, 'Software Engineering'),
     ('Eloquent JavaScript', 'Marijn Haverbeke', 2018, 'Programming'),
     ('Vue.js 3 By Example', 'John Au-Yeung',    2021, 'Web Development');
+
+INSERT INTO users (name, email, password_hash, role) VALUES
+ ('Demo Admin', 'admin@books.test', '$2y$10$Wg3jJdY00ZJ6ePWa2GLPOe1.DSZ9wzaUhY5PaJN804mqlNXZ1dTA', 'admin'),
+ ('Demo Member', 'member@books.test', '$2y$10$Wg3jJdY00ZJ6ePWa2GLPOe1.DSZ9wzaUhY5PaJN804mqlNXZ1dTA', 'member');

@@ -54,8 +54,14 @@ final class BookController
     }
 
     /* ---------- DELETE /api/books/{id} ---------- */
-
     public function delete(Request $r, Response $s, array $a): Response {
+
+    //delete function
+    $auth = (array)$r->getAttribute('auth', []);
+        if (($auth['role'] ?? 'member') !== 'admin') {
+            return $this->json($s, ['error' => 'Admins only'], 403);
+        }
+
         $id   = (int)$a['id'];
         $book = $this->books->find($id);
         if (!$book) return $this->json($s, ['error' => 'not found'], 404);
