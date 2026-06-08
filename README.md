@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SCSM2223 Chapter 10 — Books REST API with PDO + MySQL
 
 ## Setup Instructions
@@ -73,3 +74,6 @@ books-api-mysql/
 | POST   | /api/books      | Create a new book              |
 | PUT    | /api/books/{id} | Update a book (partial ok)     |
 | DELETE | /api/books/{id} | Delete a book                  |
+=======
+# Lab-10
+>>>>>>> aca364b4d2199e62746cad950ff2cb3a235e1f9b
