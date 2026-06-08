@@ -1,0 +1,78 @@
+### Test 1 — List all books (seed data from DB)
+GET http://localhost:8000/api/books
+
+###
+
+### Test 2a — Search by keyword
+GET http://localhost:8000/api/books?q=clean
+
+###
+
+### Test 2b — Limit results
+GET http://localhost:8000/api/books?limit=2
+
+###
+
+### Test 3 — Create a book
+POST http://localhost:8000/api/books
+Content-Type: application/json
+
+{
+    "title": "Refactoring",
+    "author": "Martin Fowler",
+    "year": 2018
+}
+
+###
+
+### Test 4a — Partial update
+PUT http://localhost:8000/api/books/1
+Content-Type: application/json
+
+{
+    "genre": "Software Craftsmanship"
+}
+
+###
+
+### Test 4b — Delete a book
+DELETE http://localhost:8000/api/books/2
+
+###
+
+### Test 5 — Get one book (exists)
+GET http://localhost:8000/api/books/1
+
+###
+
+### Test 5b — Get one book (not found)
+GET http://localhost:8000/api/books/9999
+
+###
+
+### Test 6 — Validation error (missing fields)
+POST http://localhost:8000/api/books
+Content-Type: application/json
+
+{
+    "title": "Just a title"
+}
+
+###
+
+### Part F — SQL Injection attempt 1 (id with OR injection)
+GET http://localhost:8000/api/books/1%20OR%201=1
+
+###
+
+### Part F — SQL Injection attempt 2 (quote escape in q param)
+GET http://localhost:8000/api/books?q='%20OR%20'1'='1
+
+POST http://localhost:8000/api/books
+Content-Type: application/json
+
+{
+    "title": "Refactoring",
+    "author": "Kesava",
+    "year": 2018
+}
